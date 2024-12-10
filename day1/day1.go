@@ -37,6 +37,12 @@ func main() {
 		right = append(right, r)
 	}
 
+	fmt.Printf("Sorted Diffs: %d", sortedDiffs(left, right)) // Confirmed correct: 2375403
+	fmt.Println()
+	fmt.Printf("Product: %d", occurrencesProduct(left, right)) // Confirmed correct: 23082277
+}
+
+func sortedDiffs(left []int, right []int) int {
 	slices.Sort(left)
 	slices.Sort(right)
 
@@ -48,5 +54,26 @@ func main() {
 		sum += diff
 	}
 
-	fmt.Println(sum) // Confirmed correct: 2375403
+	return sum
+}
+
+func occurrencesProduct(left []int, right []int) int {
+	rightOccurrences := make(map[int]int)
+
+	for _, n := range right {
+		_, exists := rightOccurrences[n]
+
+		if exists == false {
+			rightOccurrences[n] = 1
+		} else {
+			rightOccurrences[n] = rightOccurrences[n] + 1
+		}
+	}
+
+	total := 0
+	for _, n := range left {
+		total += n * rightOccurrences[n]
+	}
+
+	return total
 }
