@@ -20,8 +20,7 @@ func main() {
 
 	scanner := bufio.NewScanner(file)
 
-	safeReports := 0
-
+	input := make([][]int, 0)
 	for scanner.Scan() {
 		line := string(scanner.Bytes())
 		nums := strings.Split(line, " ")
@@ -32,12 +31,31 @@ func main() {
 			ints = append(ints, i)
 		}
 
-		if utils.IsOrdered(ints) && checkElementGaps(ints) {
+		input = append(input, ints)
+	}
+
+	part1 := Part1(input)
+	part2 := Part2(input)
+
+	fmt.Printf("Part 1: %d\n", part1)
+	fmt.Printf("Part 2: %d", part2)
+}
+
+func Part1(input [][]int) int {
+	safeReports := 0
+
+	for _, arr := range input {
+		if utils.IsOrdered(arr) && checkElementGaps(arr) {
 			safeReports++
 		}
 	}
 
-	fmt.Printf("Safe Reports: %d", safeReports)
+	return safeReports
+}
+
+func Part2(input [][]int) int {
+	// TODO
+	return 0
 }
 
 func checkElementGaps(arr []int) bool {
