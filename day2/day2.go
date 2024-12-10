@@ -54,8 +54,29 @@ func Part1(input [][]int) int {
 }
 
 func Part2(input [][]int) int {
+	safeReports := 0
+	for _, arr := range input {
+		if utils.IsOrdered(arr) && checkElementGaps(arr) {
+			safeReports++
+		} else {
+			for i, _ := range arr {
+				left := arr[0:i]
+				right := arr[i+1:]
+
+				appended := make([]int, 0)
+				appended = append(appended, left...)
+				appended = append(appended, right...)
+
+				if utils.IsOrdered(appended) && checkElementGaps(appended) {
+					safeReports++
+					break
+				}
+			}
+		}
+	}
+
 	// TODO
-	return 0
+	return safeReports
 }
 
 func checkElementGaps(arr []int) bool {
