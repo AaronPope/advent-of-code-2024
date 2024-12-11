@@ -37,9 +37,8 @@ func main() {
 		right = append(right, r)
 	}
 
-	fmt.Printf("Sorted Diffs: %d", sortedDiffs(left, right)) // Confirmed correct: 2375403
-	fmt.Println()
-	fmt.Printf("Product: %d", occurrencesProduct(left, right)) // Confirmed correct: 23082277
+	fmt.Printf("Sorted Diffs: %d\n", sortedDiffs(left, right))   // Confirmed correct: 2375403
+	fmt.Printf("Product: %d\n", occurrencesProduct(left, right)) // Confirmed correct: 23082277
 }
 
 func sortedDiffs(left []int, right []int) int {
