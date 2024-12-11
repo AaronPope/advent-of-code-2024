@@ -38,7 +38,7 @@ func main() {
 	part2 := Part2(input)
 
 	fmt.Printf("Part 1: %d\n", part1)
-	fmt.Printf("Part 2: %d", part2)
+	fmt.Printf("Part 2: %d\n", part2)
 }
 
 func Part1(input [][]int) int {
