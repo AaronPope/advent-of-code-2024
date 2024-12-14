@@ -4,11 +4,7 @@ import (
 	utils "aoc2024/utils"
 )
 
-func main() {
-	Exec()
-}
-
-func Exec() utils.Problem {
+func Solve() utils.Problem {
 	p := utils.NewProblem(4)
 	p.Part1.Result = Part1()
 	p.Part2.Result = Part2()

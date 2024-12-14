@@ -10,10 +10,10 @@ import (
 )
 
 func main() {
-	Exec()
+	Solve()
 }
 
-func Exec() utils.Problem {
+func Solve() utils.Problem {
 	p := utils.NewProblem(1)
 	file := p.Part1.OpenInputFile()
 	defer file.Close()

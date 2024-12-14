@@ -8,11 +8,7 @@ import (
 	utils "aoc2024/utils"
 )
 
-func main() {
-	Exec()
-}
-
-func Exec() utils.Problem {
+func Solve() utils.Problem {
 	p := utils.NewProblem(2)
 	file := p.Part1.OpenInputFile()
 	defer file.Close()

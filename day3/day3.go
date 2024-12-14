@@ -10,12 +10,7 @@ import (
 var digitsRE = regexp.MustCompile(`\d+`)
 var re = regexp.MustCompile(`mul\(\d+,\d+\)`)
 
-// TODO: Refactor + add a test for funsies
-func main() {
-	Exec()
-}
-
-func Exec() utils.Problem {
+func Solve() utils.Problem {
 	p := utils.NewProblem(3)
 
 	p.Part1.Result = Part1(p.Part1.InputString) // 190604937

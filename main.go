@@ -10,10 +10,10 @@ import (
 
 func main() {
 	days := []utils.Problem{
-		day4.Exec(),
-		day3.Exec(),
-		day2.Exec(),
-		day1.Exec(),
+		day4.Solve(),
+		day3.Solve(),
+		day2.Solve(),
+		day1.Solve(),
 	}
 
 	for _, day := range days {

@@ -20,26 +20,26 @@ func CheckProblemResults(t *testing.T, p utils.Problem,
 }
 
 func TestConfirmedResultsDay1(t *testing.T) {
-	CheckProblemResults(t, day1.Exec(),
+	CheckProblemResults(t, day1.Solve(),
 		2375403,
 		23082277)
 }
 
 func TestConfirmedResultsDay2(t *testing.T) {
-	CheckProblemResults(t, day2.Exec(),
+	CheckProblemResults(t, day2.Solve(),
 		526,
 		566)
 
 }
 
 func TestConfirmedResultsDay3(t *testing.T) {
-	CheckProblemResults(t, day3.Exec(),
+	CheckProblemResults(t, day3.Solve(),
 		190604937,
 		82857512)
 }
 
 func TestConfirmedResultsDay4(t *testing.T) {
-	CheckProblemResults(t, day4.Exec(),
+	CheckProblemResults(t, day4.Solve(),
 		0,
 		0)
 }
