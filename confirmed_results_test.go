@@ -8,6 +8,7 @@ import (
 	"aoc2024/day1"
 	"aoc2024/day2"
 	"aoc2024/day3"
+	"aoc2024/day4"
 	utils "aoc2024/utils"
 )
 
@@ -35,4 +36,10 @@ func TestConfirmedResultsDay3(t *testing.T) {
 	CheckProblemResults(t, day3.Exec(),
 		190604937,
 		82857512)
+}
+
+func TestConfirmedResultsDay4(t *testing.T) {
+	CheckProblemResults(t, day4.Exec(),
+		0,
+		0)
 }

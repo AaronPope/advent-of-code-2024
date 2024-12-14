@@ -1,12 +1,19 @@
-package main
+package day4
 
-import "fmt"
+import (
+	utils "aoc2024/utils"
+)
 
 func main() {
-	part1 := Part1()
-	part2 := Part2()
+	Exec()
+}
 
-	fmt.Printf("Part 1: %v\nPart 2: %v\n", part1, part2)
+func Exec() utils.Problem {
+	p := utils.NewProblem(4)
+	p.Part1.Result = Part1()
+	p.Part2.Result = Part2()
+
+	return p
 }
 
 func Part1() int {
