@@ -2,8 +2,6 @@ package main
 
 import (
 	"bufio"
-	"fmt"
-	"os"
 	"strconv"
 	"strings"
 
@@ -11,11 +9,8 @@ import (
 )
 
 func main() {
-	file, err := os.Open("inputs/day2.txt")
-
-	if err != nil {
-		fmt.Errorf("Failed to load input")
-	}
+	p := utils.NewProblem(2)
+	file := p.Part1.OpenInputFile()
 	defer file.Close()
 
 	scanner := bufio.NewScanner(file)
@@ -34,11 +29,9 @@ func main() {
 		input = append(input, ints)
 	}
 
-	part1 := Part1(input)
-	part2 := Part2(input)
-
-	fmt.Printf("Part 1: %d\n", part1)
-	fmt.Printf("Part 2: %d\n", part2)
+	p.Part1.Result = Part1(input)
+	p.Part2.Result = Part2(input)
+	p.PrintResults()
 }
 
 func Part1(input [][]int) int {
