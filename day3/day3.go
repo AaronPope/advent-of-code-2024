@@ -1,11 +1,10 @@
-package main
+package day3
 
 import (
-	"bufio"
-	"fmt"
-	"os"
 	"regexp"
 	"strconv"
+
+	utils "aoc2024/utils"
 )
 
 var digitsRE = regexp.MustCompile(`\d+`)
@@ -13,30 +12,19 @@ var re = regexp.MustCompile(`mul\(\d+,\d+\)`)
 
 // TODO: Refactor + add a test for funsies
 func main() {
-	// sample := "1532mul(5,4)k,mu (l,5)testingmul(2,2)testing"
-	// res := re.FindAll([]byte(sample), -1)
-	// for _, v := range res {
-	// 	fmt.Println(string(v))
-	// }
-
-	part1 := Part1() // 190604937
-	part2 := Part2() // 82857512
-	fmt.Printf("Part 1: %v\nPart 2: %v\n", part1, part2)
+	Exec()
 }
 
-func Part1() int {
-	file, err := os.Open("inputs/day3.txt")
+func Exec() utils.Problem {
+	p := utils.NewProblem(3)
 
-	if err != nil {
-		fmt.Errorf("Failed to load input")
-	}
-	defer file.Close()
-	scanner := bufio.NewScanner(file)
-	input := ""
-	for scanner.Scan() {
-		input += scanner.Text()
-	}
+	p.Part1.Result = Part1(p.Part1.InputString) // 190604937
+	p.Part2.Result = Part2(p.Part2.InputString) // 82857512
 
+	return p
+}
+
+func Part1(input string) int {
 	product := 0
 
 	muls := re.FindAllString(input, -1)
@@ -53,20 +41,21 @@ func Part1() int {
 	return product
 }
 
-func Part2() int {
+// TODO: Figure out a way to better handle this while leveraging the struct
+func Part2(input string) int {
 	// Had to add `do()` to the beginning and `don't()` to the end of the file
 	//	since muls are active at the beginning and a `do()` is near the end but not closed by a `don't()`
-	file, err := os.Open("inputs/day3-part2.txt")
+	// file, err := os.Open("inputs/day3-part2.txt")
 
-	if err != nil {
-		fmt.Errorf("Failed to load input")
-	}
-	defer file.Close()
-	scanner := bufio.NewScanner(file)
-	input := ""
-	for scanner.Scan() {
-		input += scanner.Text()
-	}
+	// if err != nil {
+	// 	fmt.Errorf("Failed to load input")
+	// }
+	// defer file.Close()
+	// scanner := bufio.NewScanner(file)
+	// input := ""
+	// for scanner.Scan() {
+	// 	input += scanner.Text()
+	// }
 
 	activeMulsRE := regexp.MustCompile(`do\(\)(.*?)don't\(\)`)
 	activeSections := activeMulsRE.FindAllString(input, -1)

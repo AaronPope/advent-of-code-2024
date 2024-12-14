@@ -1,9 +1,7 @@
-package main
+package day1
 
 import (
 	"bufio"
-	"fmt"
-	"os"
 	"slices"
 	"strconv"
 	"strings"
@@ -11,16 +9,13 @@ import (
 	utils "aoc2024/utils"
 )
 
-func TestPub() {
-	fmt.Println("TESTING...")
+func main() {
+	Exec()
 }
 
-func main() {
-	file, err := os.Open("inputs/day1.txt")
-
-	if err != nil {
-		fmt.Errorf("Failed to load input")
-	}
+func Exec() utils.Problem {
+	p := utils.NewProblem(1)
+	file := p.Part1.OpenInputFile()
 	defer file.Close()
 
 	scanner := bufio.NewScanner(file)
@@ -37,8 +32,10 @@ func main() {
 		right = append(right, r)
 	}
 
-	fmt.Printf("Sorted Diffs: %d\n", sortedDiffs(left, right))   // Confirmed correct: 2375403
-	fmt.Printf("Product: %d\n", occurrencesProduct(left, right)) // Confirmed correct: 23082277
+	p.Part1.Result = sortedDiffs(left, right)
+	p.Part2.Result = occurrencesProduct(left, right)
+
+	return p
 }
 
 func sortedDiffs(left []int, right []int) int {
