@@ -1,4 +1,4 @@
-package main
+package day2
 
 import (
 	"bufio"
@@ -9,6 +9,10 @@ import (
 )
 
 func main() {
+	Exec()
+}
+
+func Exec() utils.Problem {
 	p := utils.NewProblem(2)
 	file := p.Part1.OpenInputFile()
 	defer file.Close()
@@ -31,7 +35,8 @@ func main() {
 
 	p.Part1.Result = Part1(input)
 	p.Part2.Result = Part2(input)
-	p.PrintResults()
+
+	return p
 }
 
 func Part1(input [][]int) int {

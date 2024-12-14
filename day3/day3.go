@@ -1,4 +1,4 @@
-package main
+package day3
 
 import (
 	"regexp"
@@ -12,12 +12,16 @@ var re = regexp.MustCompile(`mul\(\d+,\d+\)`)
 
 // TODO: Refactor + add a test for funsies
 func main() {
+	Exec()
+}
+
+func Exec() utils.Problem {
 	p := utils.NewProblem(3)
 
 	p.Part1.Result = Part1(p.Part1.InputString) // 190604937
 	p.Part2.Result = Part2(p.Part2.InputString) // 82857512
-	p.PrintResults()
-	// fmt.Printf("Part 1: %v\nPart 2: %v\n", part1, part2)
+
+	return p
 }
 
 func Part1(input string) int {

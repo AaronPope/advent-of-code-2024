@@ -1,4 +1,4 @@
-package main
+package day1
 
 import (
 	"bufio"
@@ -10,10 +10,10 @@ import (
 )
 
 func main() {
-	Day1()
+	Exec()
 }
 
-func Day1() utils.Problem {
+func Exec() utils.Problem {
 	p := utils.NewProblem(1)
 	file := p.Part1.OpenInputFile()
 	defer file.Close()
@@ -34,7 +34,6 @@ func Day1() utils.Problem {
 
 	p.Part1.Result = sortedDiffs(left, right)
 	p.Part2.Result = occurrencesProduct(left, right)
-	p.PrintResults()
 
 	return p
 }

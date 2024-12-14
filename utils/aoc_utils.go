@@ -44,6 +44,7 @@ func (p *Part) ReadInputFile() {
 }
 
 func (p Problem) PrintResults() {
+	fmt.Printf("-- Day %d --\n", p.Day)
 	fmt.Printf("Part 1: %v\nPart 2: %v\n", p.Part1.Result, p.Part2.Result)
 }
 
