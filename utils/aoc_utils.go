@@ -53,10 +53,10 @@ func NewProblem(day int) Problem {
 	problem := Problem{
 		Day: day,
 		Part1: Part{
-			InputFileLoc: fmt.Sprintf("inputs/day%d.txt", day),
+			InputFileLoc: fmt.Sprintf("inputs/%d.txt", day),
 		},
 		Part2: Part{
-			InputFileLoc: fmt.Sprintf("inputs/day%d-part2.txt", day),
+			InputFileLoc: fmt.Sprintf("inputs/%d-part2.txt", day),
 		},
 	}
 	problem.Part1.ReadInputFile()
